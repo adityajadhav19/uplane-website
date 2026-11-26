@@ -23,17 +23,17 @@ const comparisons = [
   ["Reporting & Insights", "Late reports, manual data crunching.", "Every morning, your performance dashboard is ready in Slack, Teams, or email. What’s winning and what’s underperforming will be all clear and automated."],
   ["Chat Interface", "Scattered conversations, disconnected tools, and slow answers.", "Your marketing assistant is ready wherever you work. Ask questions, share ideas, and get insights 24/7 through your everyday tools."],
 ];
-: { small?: boolean }) { return <span className={small ? "brand-symbol brand-symbol-small" : "brand-symbol"} aria-hidden="true"><i /></span>; }
-
-
-: { children: React.ReactNode; secondary?: boolean }) { return <a className={secondary ? "button button-secondary" : "button"} href="#contact">{children}{!secondary && <Arrow/>}</a>; }
 
 
 
 
 
 
-: { kind: string }) { if(kind==="research") return <ResearchVisual/>; if(kind==="ads") return <AdsVisual/>; if(kind==="landing") return <LandingVisual/>; if(kind==="campaign") return <CampaignVisual/>; if(kind==="learning") return <LearningVisual/>; return <ReportingVisual/>; }
+
+
+
+
+
 
 
 
