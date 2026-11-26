@@ -1929,3 +1929,113 @@ html,body {width:100%;max-width:100%;overflow-x:clip}
   position: relative;
   z-index: 1;
 }
+
+
+/* Figma registration guides: logo-to-grid centerline and matching comparison table.
+   Decorative only: no column widths, gaps, heights, breakpoints or overflow rules changed. */
+
+/* Center the feature logo on the real grid seam and connect it to the grid. */
+.features-heading > .brand-symbol {
+  position: relative;
+  z-index: 3;
+}
+.features-heading > .brand-symbol::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 1px);
+  height: 54px;
+  border-left: 1px dashed rgba(126,143,168,.48);
+  transform: translateX(-.5px);
+  pointer-events: none;
+}
+.feature-grid {
+  position: relative;
+}
+.feature-grid::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 1px dashed rgba(126,143,168,.52);
+  transform: translateX(-.5px);
+}
+
+/* Table outer frame and cell divisions use the same fine dashed construction lines. */
+.comparison-table-polished {
+  position: relative;
+  border: 1px dashed rgba(137,148,165,.52) !important;
+  border-radius: 3px !important;
+  overflow: visible;
+}
+.comparison-table-polished .comparison-row {
+  position: relative;
+  border-bottom: 1px dashed rgba(137,148,165,.42) !important;
+}
+.comparison-table-polished .comparison-row:last-child {
+  border-bottom: 0 !important;
+}
+.comparison-table-polished .comparison-row > div {
+  border-right: 1px dashed rgba(137,148,165,.4) !important;
+}
+.comparison-table-polished .comparison-row > div:last-child {
+  border-right: 0 !important;
+}
+
+/* Fine vertical registration guides at the actual table column boundaries. */
+.comparison-table-polished::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(to bottom, rgba(137,148,165,.42) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(to bottom, rgba(137,148,165,.42) 0 2px, transparent 2px 6px);
+  background-size: 1px 100%, 1px 100%;
+  background-position: 20% 0, 58% 0;
+  background-repeat: no-repeat;
+}
+
+/* Small registration nodes at each row/column intersection, matching the feature grid. */
+.comparison-table-polished .comparison-row:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 7px;
+  background-image:
+    radial-gradient(circle, rgba(112,123,140,.72) 0 1.45px, rgba(255,255,255,.92) 1.55px 2.8px, transparent 3px),
+    radial-gradient(circle, rgba(112,123,140,.72) 0 1.45px, rgba(255,255,255,.92) 1.55px 2.8px, transparent 3px),
+    radial-gradient(circle, rgba(112,123,140,.72) 0 1.45px, rgba(255,255,255,.92) 1.55px 2.8px, transparent 3px),
+    radial-gradient(circle, rgba(112,123,140,.72) 0 1.45px, rgba(255,255,255,.92) 1.55px 2.8px, transparent 3px);
+  background-size: 7px 7px, 7px 7px, 7px 7px, 7px 7px;
+  background-position: 0 0, 20% 0, 58% 0, 100% 0;
+  background-repeat: no-repeat;
+}
+
+/* Registration points at the four frame corners and the two column intersections. */
+.comparison-table-polished > .comparison-header::before {
+  content: "";
+  position: absolute;
+  z-index: 6;
+  pointer-events: none;
+  top: -4px;
+  left: 0;
+  right: 0;
+  height: 7px;
+  background-image:
+    radial-gradient(circle, rgba(112,123,140,.72) 0 1.45px, rgba(255,255,255,.92) 1.55px 2.8px, transparent 3px),
+    radial-gradient(circle, rgba(112,123,140,.72) 0 1.45px, rgba(255,255,255,.92) 1.55px 2.8px, transparent 3px),
+    radial-gradient(circle, rgba(112,123,140,.72) 0 1.45px, rgba(255,255,255,.92) 1.55px 2.8px, transparent 3px),
+    radial-gradient(circle, rgba(112,123,140,.72) 0 1.45px, rgba(255,255,255,.92) 1.55px 2.8px, transparent 3px);
+  background-size: 7px 7px, 7px 7px, 7px 7px, 7px 7px;
+  background-position: 0 0, 20% 0, 58% 0, 100% 0;
+  background-repeat: no-repeat;
+}
