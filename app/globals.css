@@ -1873,3 +1873,59 @@ html,body {width:100%;max-width:100%;overflow-x:clip}
 .visual-learning { padding: 4% !important; }
 .visual-reporting { padding: 5% !important; }
 
+
+
+/* Figma canvas treatment for the feature section:
+   dotted layout guides, small registration nodes and a soft blended canvas.
+   Decorative only — no sizing, grid, breakpoint or responsive behaviour changes. */
+.features-section {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 72% 34% at 50% 7%, rgba(204,220,244,.23), transparent 78%),
+    radial-gradient(ellipse 48% 22% at 92% 42%, rgba(220,231,248,.16), transparent 82%),
+    linear-gradient(180deg, #f4f5f7 0%, #f6f6f7 48%, #f3f4f6 100%) !important;
+}
+.features-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .52;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 18px, rgba(126,142,166,.022) 18px 19px),
+    repeating-linear-gradient(-45deg, transparent 0 18px, rgba(126,142,166,.022) 18px 19px);
+}
+.features-heading,
+.feature-grid {
+  position: relative;
+  z-index: 1;
+}
+.feature-grid {
+  background: transparent !important;
+  border-top: 1px dashed rgba(137,148,165,.42) !important;
+  border-left: 1px dashed rgba(137,148,165,.42) !important;
+}
+.feature-card {
+  position: relative;
+  background: rgba(242,243,246,.74) !important;
+  border-right: 1px dashed rgba(137,148,165,.46) !important;
+  border-bottom: 1px dashed rgba(137,148,165,.46) !important;
+}
+.feature-card::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: 4;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 3px 3px, rgba(112,123,140,.72) 0 1.6px, rgba(255,255,255,.9) 1.7px 3px, transparent 3.2px),
+    radial-gradient(circle at calc(100% - 3px) 3px, rgba(112,123,140,.72) 0 1.6px, rgba(255,255,255,.9) 1.7px 3px, transparent 3.2px),
+    radial-gradient(circle at 3px calc(100% - 3px), rgba(112,123,140,.72) 0 1.6px, rgba(255,255,255,.9) 1.7px 3px, transparent 3.2px),
+    radial-gradient(circle at calc(100% - 3px) calc(100% - 3px), rgba(112,123,140,.72) 0 1.6px, rgba(255,255,255,.9) 1.7px 3px, transparent 3.2px);
+}
+.feature-card .visual {
+  position: relative;
+  z-index: 1;
+}
