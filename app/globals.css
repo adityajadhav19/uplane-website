@@ -396,23 +396,29 @@ main{background:#f5f6f8}
   font-size:10px;
 }
 .engine-foot em{margin-left:auto;font-size:9px;padding:7px 9px}
+/* Keep the reference's two-column desktop composition through tablet widths.
+   Only narrow mobile screens switch to a stacked hero (max-width: 760px). */
 @media(max-width:1100px){
   .hero{
-    grid-template-columns:minmax(0,1fr)!important;
-    gap:42px!important;
-    min-height:0!important;
-    max-width:860px;
-    padding-top:54px;
-    padding-bottom:58px;
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    gap:clamp(24px,4vw,42px)!important;
+    min-height:680px!important;
+    max-width:100%;
+    padding:54px 32px 58px!important;
+    align-items:center!important;
   }
-  .hero-copy{max-width:100%!important}
-  .hero h1{font-size:clamp(42px,6vw,58px)!important;max-width:700px}
-  .expert-logos{margin-top:58px}
-  .expert-logos>div{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:9px!important;max-width:620px}
-  .hero-dashboard{width:100%;max-width:610px;margin:0 auto}
-  .dashboard-frame{aspect-ratio:.91;min-height:0!important;padding:5.5% 9.5% 4.5%!important}
+  .hero-copy{max-width:100%!important;min-width:0}
+  .hero h1{font-size:clamp(34px,4.5vw,50px)!important;line-height:1.16!important;letter-spacing:-1.7px!important;max-width:100%}
+  .hero-copy>p{font-size:13px;max-width:100%}
+  .hero-actions{flex-wrap:wrap}
+  .expert-logos{margin-top:clamp(34px,5vw,58px)!important}
+  .expert-logos>div{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:7px!important;max-width:100%;width:100%}
+  .expert-logos>div>span{min-width:0!important;width:100%!important;height:48px!important;padding:5px!important;font-size:clamp(8px,1.1vw,12px)!important}
+  .expert-logos .code-logo{font-size:clamp(13px,1.8vw,18px)!important}
+  .hero-dashboard{width:100%;max-width:none;margin:0}
+  .dashboard-frame{aspect-ratio:.91;min-height:0!important;padding:5.5% 7.5% 4.5%!important}
   .engine-panel{gap:0!important}
-  .engine-body{min-height:260px!important}
+  .engine-body{min-height:0!important}
 }
 @media(max-width:760px){
   .hero{padding-left:24px!important;padding-right:24px!important;gap:36px!important}
