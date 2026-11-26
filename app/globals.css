@@ -2039,3 +2039,42 @@ html,body {width:100%;max-width:100%;overflow-x:clip}
   background-position: 0 0, 20% 0, 58% 0, 100% 0;
   background-repeat: no-repeat;
 }
+
+
+/* Mobile-only guide correction:
+   replace the desktop center construction line with card/table perimeter borders.
+   All current responsive sizing, stacking, dimensions and card artwork remain intact. */
+@media (max-width: 760px) {
+  /* Keep only the short connector from the section mark to the grid edge. */
+  .features-heading > .brand-symbol::after {
+    display: block !important;
+    height: 30px !important;
+    border-left: 1px dashed rgba(126,143,168,.48) !important;
+  }
+
+  /* A one-column grid has no center gutter: don't draw the desktop centerline
+     through the mobile illustrations. Use the actual card borders instead. */
+  .feature-grid::before {
+    display: none !important;
+    content: none !important;
+  }
+  .feature-grid {
+    border: 0 !important;
+    background: transparent !important;
+  }
+  .feature-card {
+    border: 1px dashed rgba(137,148,165,.48) !important;
+    border-radius: 2px;
+    background: rgba(242,243,246,.74) !important;
+  }
+  .feature-card + .feature-card {
+    border-top: 0 !important;
+  }
+
+  /* The table already has real dashed cell borders. Remove the extra overlay
+     guide so it cannot sit across text or drift from the mobile column widths. */
+  .comparison-table-polished::before {
+    display: none !important;
+    content: none !important;
+  }
+}
