@@ -843,3 +843,19 @@ main{background:#f5f6f8}
   .footer-links-products{grid-column:2}
   .footer-watermark{font-size:37vw!important;margin-bottom:-15px!important}
 }
+
+
+/* Fix mobile heading: hiding authored <br> tags joined adjacent text nodes
+   ("PerformanceMarketing"). Keep the breaks and allow normal mobile wrapping. */
+@media (max-width: 760px) {
+  .hero-copy { overflow: visible !important; }
+  .hero h1 {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+  .hero h1 br { display: block !important; }
+}
