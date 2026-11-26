@@ -453,3 +453,64 @@ main{background:#f5f6f8}
   .preview-card{min-height:190px!important}
   .engine-foot span:nth-child(2){display:none}
 }
+
+
+/* Mobile dashboard containment: keep the engine, preview and status strip
+   inside the dashboard frame without changing the desktop hero grid. */
+@media (max-width: 760px) {
+  .dashboard-frame {
+    display: flex;
+    align-items: stretch;
+    overflow: hidden;
+  }
+  .engine-panel {
+    height: 100%;
+    min-height: 0;
+    justify-content: flex-start;
+    gap: 18px !important;
+  }
+  .engine-top {
+    flex: 0 0 auto;
+  }
+  .engine-content {
+    flex: 1 1 auto;
+    min-height: 0 !important;
+    height: auto;
+    overflow: hidden;
+  }
+  .engine-body {
+    flex: 1 1 auto;
+    min-height: 0 !important;
+    align-items: stretch;
+  }
+  .preview-card {
+    min-height: 0 !important;
+    height: 100% !important;
+  }
+  .preview-skeleton span:nth-child(2) {
+    height: clamp(45px, 12vw, 68px);
+  }
+  .conversion {
+    min-height: 0;
+  }
+  .conversion p {
+    margin-top: 8px !important;
+  }
+  .engine-foot {
+    position: relative;
+    flex: 0 0 42px;
+    margin-top: 0;
+  }
+}
+@media (max-width: 420px) {
+  .engine-panel {
+    gap: 14px !important;
+  }
+  .engine-body {
+    min-height: 0 !important;
+  }
+  .engine-foot {
+    flex-basis: 38px;
+    min-height: 38px;
+  }
+}
