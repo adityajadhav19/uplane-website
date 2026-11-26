@@ -603,3 +603,126 @@ main{background:#f5f6f8}
   .expert-logos > div { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; gap: 5px !important; }
   .dashboard-frame { padding: 5.5% 6.5% 4.5% !important; }
 }
+
+
+/* Comparison table — clearer column treatment, cell separators and interactive row feedback. */
+.comparison-table-polished{
+  border:1px solid #dfe3e9;
+  border-radius:7px;
+  overflow:hidden;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(26,42,68,.055),0 1px 3px rgba(26,42,68,.04);
+  isolation:isolate;
+}
+.comparison-table-polished .comparison-row{
+  grid-template-columns:minmax(0,20%) minmax(0,38%) minmax(0,42%);
+  border-bottom:1px solid #e0e4ea;
+  transition:transform .22s ease,box-shadow .22s ease;
+}
+.comparison-table-polished .comparison-row:last-child{border-bottom:0}
+.comparison-table-polished .comparison-row>div{
+  padding:19px 22px;
+  border-right:1px solid #e0e4ea;
+  min-width:0;
+  transition:background-color .22s ease;
+}
+.comparison-table-polished .comparison-row>div:last-child{border-right:0}
+.comparison-table-polished .comparison-header{
+  min-height:54px;
+  background:#f0f2f5;
+  color:#24262b;
+  font-size:12px;
+  letter-spacing:-.1px;
+}
+.comparison-table-polished .comparison-header>div{
+  background:#f0f2f5;
+  padding-top:16px;
+  padding-bottom:16px;
+}
+.comparison-table-polished .comparison-header>div:nth-child(2){background:#f5f6f8}
+.comparison-table-polished .comparison-header>div:nth-child(3){background:#eef3fb}
+.comparison-table-polished .comparison-data-row{position:relative}
+.comparison-table-polished .comparison-category-cell{background:#fff}
+.comparison-table-polished .comparison-traditional-cell{background:#fafafb}
+.comparison-table-polished .comparison-uplane-cell{background:#f6f8fc}
+.comparison-table-polished .comparison-category{
+  justify-content:flex-start;
+  gap:11px;
+}
+.comparison-table-polished .comparison-category b{
+  font-size:12px;
+  line-height:1.45;
+  color:#24262b;
+}
+.comparison-search-icon{
+  position:relative;
+  display:inline-grid;
+  place-items:center;
+  flex:0 0 23px;
+  width:23px;
+  height:23px;
+  border:1px solid #e1e5eb;
+  border-radius:5px;
+  background:linear-gradient(180deg,#fff,#f8f9fb);
+  color:#4c5562;
+}
+.comparison-search-icon i{
+  position:relative;
+  width:8px;
+  height:8px;
+  border:1.5px solid currentColor;
+  border-radius:50%;
+}
+.comparison-search-icon i:after{
+  content:"";
+  position:absolute;
+  width:4px;
+  height:1.5px;
+  background:currentColor;
+  right:-3px;
+  bottom:-1px;
+  transform:rotate(45deg);
+  transform-origin:left center;
+  border-radius:2px;
+}
+.comparison-table-polished .comparison-copy-cell small{
+  font-size:8px;
+  line-height:1.4;
+  letter-spacing:.35px;
+  color:#8a909b;
+}
+.comparison-table-polished .comparison-copy-cell p{
+  margin-top:9px;
+  font-size:11px;
+  line-height:1.55;
+  color:#414650;
+}
+.comparison-table-polished .comparison-copy-cell small .brand-symbol{
+  width:13px;
+  height:13px;
+  border-radius:2px;
+}
+.comparison-table-polished .comparison-copy-cell small .brand-symbol i{
+  width:6px;
+  height:8px;
+}
+@media (hover:hover) and (pointer:fine){
+  .comparison-table-polished .comparison-data-row:hover{
+    z-index:2;
+    transform:translateY(-1px);
+    box-shadow:0 9px 22px rgba(28,66,128,.10);
+  }
+  .comparison-table-polished .comparison-data-row:hover .comparison-category-cell{background:#f7faff}
+  .comparison-table-polished .comparison-data-row:hover .comparison-traditional-cell{background:#f1f6fd}
+  .comparison-table-polished .comparison-data-row:hover .comparison-uplane-cell{background:#eaf2ff}
+}
+@media(max-width:1280px){
+  .comparison-table-polished .comparison-row>div{padding:16px 17px}
+}
+@media(max-width:620px){
+  .comparison-table-polished{border-radius:6px;box-shadow:0 5px 16px rgba(26,42,68,.05)}
+  .comparison-table-polished .comparison-row{min-width:700px;grid-template-columns:150px 275px 275px}
+  .comparison-table-polished .comparison-row>div{padding:14px}
+  .comparison-table-polished .comparison-header{min-height:48px}
+  .comparison-table-polished .comparison-copy-cell p{font-size:10px;line-height:1.55}
+}
