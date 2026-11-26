@@ -44,7 +44,7 @@ function Reviews() {
     <div className="reviews-carousel" aria-label="Customer testimonials">
       <button className="reviews-arrow reviews-prev" type="button" onClick={() => move(-1)} aria-label="Previous testimonial">‹</button>
       <div className="reviews-viewport">
-        <div className="reviews-track" style={{ transform: `translateX(calc(50% - ${active * 378 + 180}px))` }}>
+        <div className="reviews-track" style={{ marginLeft: `calc(50% - ${active * 378 + 180}px)` }}>
           {visibleReviews.map((review, index) => (
             <article className={`review-card ${index % reviews.length === active ? "review-active" : ""}`} key={index} aria-hidden={index % reviews.length !== active && index % reviews.length !== (active + 1) % reviews.length && index % reviews.length !== (active + reviews.length - 1) % reviews.length}>
               <div className="stars">★★★★★</div>
