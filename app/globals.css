@@ -1640,3 +1640,236 @@ html,body {width:100%;max-width:100%;overflow-x:clip}
 .feature-card > p { color: #545a64; }
 .feature-card > a { color: #626b78; transition: color .18s ease, gap .18s ease; }
 .feature-card > a:hover { color: #2476ff; gap: 10px; }
+
+
+/* Reference match: feature illustration proportions and card internals.
+   No breakpoint, grid, outer card width, or mobile stacking rules changed. */
+
+/* The Figma card art is a tall panel, not a shallow banner.
+   Aspect-ratio scales the artwork with the existing card width on every screen. */
+.feature-card .visual {
+  height: auto !important;
+  aspect-ratio: 1.58 / 1;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ad creation — preserve the vertical hierarchy from the reference:
+   source pills, connector tree + center engine, then four ad cards. */
+.visual-ads {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0;
+  padding: 5.5% 5.5% 5% !important;
+  background:
+    radial-gradient(ellipse at 50% 42%, rgba(219,235,255,.22), transparent 58%),
+    #fff !important;
+}
+
+.visual-ads .flow-pills {
+  flex: 0 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(7px, 1.5%, 14px);
+  min-height: 0;
+}
+
+.visual-ads .flow-pills span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 23px;
+  padding: 0 clamp(9px, 2%, 18px);
+  border-radius: 99px;
+  border: 1px solid #e9eaf0;
+  background: #e9e9ef;
+  box-shadow: none;
+  font-size: clamp(8px, .72vw, 11px);
+  line-height: 1;
+  color: #202126;
+  white-space: nowrap;
+}
+
+.visual-ads .ads-flow {
+  position: relative;
+  flex: 0 0 26%;
+  width: 68%;
+  height: auto;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 0;
+}
+
+.visual-ads .ads-flow::before {
+  content: "";
+  position: absolute;
+  left: 15%;
+  right: 15%;
+  bottom: 16%;
+  height: 1px;
+  background: #d7e3f4;
+}
+
+.visual-ads .ads-flow i {
+  position: absolute;
+  top: 0;
+  bottom: auto;
+  height: 84%;
+  border-left: 1px solid #d7e4f7;
+  opacity: .95;
+}
+.visual-ads .ads-flow i:nth-child(1) { left: 16%; }
+.visual-ads .ads-flow i:nth-child(2) { left: 50%; }
+.visual-ads .ads-flow i:nth-child(3) { left: 84%; }
+.visual-ads .ads-flow i:nth-child(4) { display: none; }
+
+.visual-ads .engine-node {
+  position: absolute;
+  z-index: 3;
+  top: 38%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(44px, 9.5%, 58px);
+  height: auto;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid #b9d9ff;
+  background: radial-gradient(circle at 35% 30%, #72b5ff, #1672ee 72%);
+  box-shadow: 0 0 0 6px rgba(79,154,255,.12), 0 7px 17px rgba(31,111,219,.28);
+}
+
+.visual-ads .engine-node .brand-symbol {
+  width: 43%;
+  height: 52%;
+  border-radius: 0;
+  background: transparent;
+}
+.visual-ads .engine-node .brand-symbol i {
+  width: 100%;
+  height: 100%;
+  background: #fff;
+}
+
+.visual-ads .ad-output {
+  flex: 0 0 45%;
+  min-height: 0;
+  width: 88%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 2%;
+  padding: 0;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(232,238,248,.72), rgba(239,244,251,.42));
+}
+
+.visual-ads .ad-output-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: stretch;
+  min-width: 0;
+  min-height: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5% 6% 4%;
+  gap: 0;
+  overflow: hidden;
+  border: 1px solid #e4e8ef;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(30,49,77,.075);
+}
+
+.visual-ads .ad-output-top {
+  flex: 0 0 16%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: clamp(5px, .48vw, 7px);
+  color: #596170;
+}
+
+.visual-ads .ad-output-top .brand-symbol {
+  width: clamp(8px, 1.5%, 12px);
+  height: auto;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+}
+.visual-ads .ad-output-top .brand-symbol i {
+  width: 50%;
+  height: 65%;
+}
+
+.visual-ads .ad-creative {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7%;
+  border-radius: 0;
+  background: linear-gradient(180deg, #fff 0%, #fff 100%);
+  color: #101115;
+}
+
+.visual-ads .ad-creative .brand-symbol {
+  width: clamp(12px, 2.6%, 19px);
+  height: auto;
+  aspect-ratio: .78;
+  border-radius: 0;
+  background: transparent;
+}
+.visual-ads .ad-creative .brand-symbol i {
+  width: 100%;
+  height: 100%;
+  background: #2476ff;
+}
+.visual-ads .ad-creative b {
+  font-size: clamp(9px, .95vw, 14px);
+  line-height: 1;
+  font-weight: 650;
+  letter-spacing: -.25px;
+}
+
+.visual-ads .ad-output-actions {
+  flex: 0 0 12%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  color: #a7afbd;
+  font-size: clamp(5px, .5vw, 7px);
+  line-height: 1;
+}
+.visual-ads .ad-output-actions span:first-child { color: #fa777d; }
+.visual-ads .ad-output-actions i {
+  width: 4px;
+  height: 5px;
+  flex: 0 0 auto;
+  margin-left: auto;
+  border-radius: 1px;
+  background: #6d7380;
+}
+
+/* Keep the remaining feature illustrations on the same taller Figma canvas. */
+.visual-research { padding: 5.5% 4.5% !important; }
+.visual-research .research-pill { height: 14%; min-height: 28px; margin-bottom: 5%; }
+.visual-research .research-columns { height: 68%; gap: 2%; }
+.visual-landing { padding: 5% !important; }
+.visual-landing .page-thumb { height: 145px; }
+.visual-campaign { padding: 5.5% 6% !important; }
+.visual-learning { padding: 4% !important; }
+.visual-reporting { padding: 5% !important; }
+
