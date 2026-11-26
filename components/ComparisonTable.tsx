@@ -16,6 +16,7 @@ function CategoryIcon() {
 
 export function ComparisonTable() {
   return (
+    <div className="comparison-table-scroll" role="region" aria-label="Marketing comparison table. Swipe horizontally to view all columns." tabIndex={0}>
     <div className="comparison-table comparison-table-polished" role="table" aria-label="Traditional marketing compared with Uplane">
       <div className="comparison-row comparison-header" role="row">
         <div role="columnheader">Categories</div>
@@ -38,6 +39,7 @@ export function ComparisonTable() {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 }
