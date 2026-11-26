@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 const featureData = [
   { title: "Market research", copy: "Automatically analyze competitor’s top ads, identify real-time trends, and leverage market insights to fuel smarter ad creation.", kind: "research" },
   { title: "Ad creation", copy: "Automatically generate high-performing ad creatives based on previous market research, top performing creatives, or your ideas.", kind: "ads" },
@@ -34,22 +36,32 @@ const reviews = [
   { name: "Furkan Yilmaz", role: "International Performance Marketer", text: "Uplane’s technology-driven and data-led approach enables the creation of far more precise and high-performing campaigns compared to traditional methods." },
 ];
 function Reviews() {
+  const [active, setActive] = useState(0);
+  const visibleReviews = [...reviews, ...reviews];
+  const move = (direction: number) => setActive((current) => (current + direction + reviews.length) % reviews.length);
+
   return (
-    <div className="reviews-track">
-      {reviews.map((review, index) => (
-        <article className="review-card" key={index}>
-          <div className="stars">★★★★★</div>
-          <p>{review.text}</p>
-          <div className="review-person">
-            <span className="avatar">{review.name.charAt(0)}</span>
-            <span className="review-person-copy">
-              <b>{review.name}</b>
-              <small>{review.role}</small>
-            </span>
-            <span className="review-link">↗</span>
-          </div>
-        </article>
-      ))}
+    <div className="reviews-carousel" aria-label="Customer testimonials">
+      <button className="reviews-arrow reviews-prev" type="button" onClick={() => move(-1)} aria-label="Previous testimonial">‹</button>
+      <div className="reviews-viewport">
+        <div className="reviews-track" style={{ transform: `translateX(calc(50% - ${active * 378 + 180}px))` }}>
+          {visibleReviews.map((review, index) => (
+            <article className={`review-card ${index % reviews.length === active ? "review-active" : ""}`} key={index} aria-hidden={index % reviews.length !== active && index % reviews.length !== (active + 1) % reviews.length && index % reviews.length !== (active + reviews.length - 1) % reviews.length}>
+              <div className="stars">★★★★★</div>
+              <p>{review.text}</p>
+              <div className="review-person">
+                <span className="avatar">{review.name.charAt(0)}</span>
+                <span className="review-person-copy"><b>{review.name}</b><small>{review.role}</small></span>
+                <span className="review-link">↗</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+      <button className="reviews-arrow reviews-next" type="button" onClick={() => move(1)} aria-label="Next testimonial">›</button>
+      <div className="reviews-pagination" aria-label="Choose testimonial">
+        {reviews.map((review, index) => <button type="button" key={index} className={index === active ? "active" : ""} onClick={() => setActive(index)} aria-label={`Show testimonial ${index + 1}`} />)}
+      </div>
     </div>
   );
 }
