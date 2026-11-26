@@ -962,3 +962,27 @@ main{background:#f5f6f8}
     padding-right: 16px !important;
   }
 }
+
+
+/* Blend the hero-to-features transition into one continuous canvas.
+   The crosshatch is confined to the divider and does not affect layout. */
+.hero-bottom-rule{
+  position:relative!important;
+  height:52px!important;
+  border:0!important;
+  background:linear-gradient(180deg,#f4f5f7 0%,#f5f6f8 55%,#f7f7f7 100%)!important;
+  overflow:hidden;
+}
+.hero-bottom-rule::after{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  background-image:
+    repeating-linear-gradient(45deg,transparent 0 15px,rgba(112,132,163,.045) 15px 16px),
+    repeating-linear-gradient(-45deg,transparent 0 15px,rgba(112,132,163,.045) 15px 16px)!important;
+  pointer-events:none!important;
+}
+.features-section{
+  background-color:#f7f7f7!important;
+  background-image:linear-gradient(180deg,#f5f6f8 0%,#f7f7f7 170px)!important;
+}
