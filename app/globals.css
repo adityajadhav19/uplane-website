@@ -726,3 +726,120 @@ main{background:#f5f6f8}
   .comparison-table-polished .comparison-header{min-height:48px}
   .comparison-table-polished .comparison-copy-cell p{font-size:10px;line-height:1.55}
 }
+
+
+/* CTA + footer refinement from the supplied full-page Figma reference */
+.final-cta{
+  min-height:290px!important;
+  padding:48px 56px!important;
+  border-radius:14px!important;
+  background:
+    radial-gradient(ellipse 58% 120% at 100% 50%,rgba(181,218,255,.68),transparent 74%),
+    linear-gradient(105deg,#f3f8ff 0%,#edf6ff 48%,#d8ecff 100%)!important;
+  border:1px solid #d9e9ff!important;
+}
+.final-cta>div:first-child{max-width:560px}
+.cta-art{
+  right:-5%!important;
+  top:-30%!important;
+  width:56%!important;
+  height:165%!important;
+  transform:none!important;
+  filter:none!important;
+  background:transparent!important;
+  pointer-events:none;
+}
+.cta-art:before{
+  content:"";
+  position:absolute;
+  width:70%;
+  height:145%;
+  right:8%;
+  top:-18%;
+  border-radius:42% 8% 34% 12%;
+  transform:rotate(23deg);
+  background:linear-gradient(145deg,rgba(255,255,255,.75) 0%,rgba(207,231,255,.65) 30%,rgba(145,198,255,.26) 68%,rgba(255,255,255,.1) 100%);
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,.85),inset -10px -12px 28px rgba(87,155,238,.12),0 18px 38px rgba(85,147,226,.08);
+}
+.cta-art:after{
+  content:"";
+  position:absolute;
+  width:78%;
+  height:55%;
+  right:-3%;
+  bottom:5%;
+  border-radius:50% 0 0 0;
+  transform:rotate(-17deg);
+  border-top:2px solid rgba(255,255,255,.65);
+  background:linear-gradient(155deg,rgba(255,255,255,.22),rgba(111,179,255,.18));
+  filter:blur(.3px);
+}
+.cta-art i{
+  width:120%!important;
+  height:68px!important;
+  border-radius:50%;
+  background:linear-gradient(90deg,transparent,rgba(100,173,255,.17),rgba(255,255,255,.38),transparent)!important;
+  transform:rotate(-26deg)!important;
+  filter:blur(2px);
+}
+.cta-art i:nth-child(1){top:22%!important;left:-4%!important}
+.cta-art i:nth-child(2){top:48%!important;left:5%!important}
+.cta-art i:nth-child(3){top:74%!important;left:-10%!important}
+.site-footer{
+  max-width:1350px!important;
+  padding:62px 0 0!important;
+  background:linear-gradient(180deg,#fff 0%,#fff 38%,#f7faff 66%,#eaf3ff 100%)!important;
+}
+.footer-content{
+  grid-template-columns:minmax(0,1.7fr) minmax(0,.8fr) minmax(0,1.45fr)!important;
+  gap:clamp(35px,6vw,100px)!important;
+  padding:0 0 48px!important;
+}
+.footer-links-primary,.footer-links-products{gap:11px!important}
+.footer-links-primary>a:first-child b,.footer-links-products>b{
+  font-size:11px!important;
+  font-weight:600!important;
+  color:#222!important;
+  margin-bottom:4px!important;
+}
+.footer-links-primary>a:not(:first-child),.footer-links-products>a{
+  font-size:11px!important;
+  line-height:1.4;
+  color:#5b5e66!important;
+}
+.footer-links-primary>a:hover,.footer-links-products>a:hover{color:#2476ff!important}
+.footer-bottom{
+  border-top:1px solid rgba(219,226,236,.75)!important;
+  padding:23px 0!important;
+}
+.footer-watermark{
+  font-size:clamp(220px,30vw,460px)!important;
+  line-height:.72!important;
+  letter-spacing:-.095em!important;
+  margin:22px 0 -50px!important;
+  background:linear-gradient(180deg,#f9fcff 0%,#e8f3ff 34%,#cbdff8 54%,#eff7ff 74%,#d7e8ff 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent!important;
+  -webkit-text-stroke:1px rgba(207,226,249,.7);
+  text-shadow:0 2px 1px rgba(255,255,255,.95),0 10px 24px rgba(108,157,220,.12);
+  filter:drop-shadow(0 -2px 3px rgba(255,255,255,.7));
+}
+@media(max-width:950px){
+  .footer-content{
+    grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+    gap:30px!important;
+  }
+  .footer-brand{grid-column:1/-1!important}
+  .footer-links-products{grid-column:1/-1}
+  .footer-watermark{font-size:34vw!important;margin-bottom:-25px!important}
+}
+@media(max-width:620px){
+  .final-cta{padding:32px 26px!important;min-height:260px!important}
+  .cta-art{right:-30%!important;width:75%!important;opacity:.8}
+  .footer-content{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:28px 20px!important}
+  .footer-brand{grid-column:1/-1!important}
+  .footer-links-primary{grid-column:1}
+  .footer-links-products{grid-column:2}
+  .footer-watermark{font-size:37vw!important;margin-bottom:-15px!important}
+}
