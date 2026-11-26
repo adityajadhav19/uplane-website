@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 const featureData = [
   { title: "Market research", copy: "Automatically analyze competitor’s top ads, identify real-time trends, and leverage market insights to fuel smarter ad creation.", kind: "research" },
   { title: "Ad creation", copy: "Automatically generate high-performing ad creatives based on previous market research, top performing creatives, or your ideas.", kind: "ads" },
@@ -44,7 +44,7 @@ function Reviews() {
     <div className="reviews-carousel" aria-label="Customer testimonials">
       <button className="reviews-arrow reviews-prev" type="button" onClick={() => move(-1)} aria-label="Previous testimonial">‹</button>
       <div className="reviews-viewport">
-        <div className="reviews-track" style={{ marginLeft: `calc(50% - ${active * 378 + 180}px)` }}>
+        <div className="reviews-track" style={{ "--active-index": active } as CSSProperties}>
           {visibleReviews.map((review, index) => (
             <article className={`review-card ${index % reviews.length === active ? "review-active" : ""}`} key={index} aria-hidden={index % reviews.length !== active && index % reviews.length !== (active + 1) % reviews.length && index % reviews.length !== (active + reviews.length - 1) % reviews.length}>
               <div className="stars">★★★★★</div>
