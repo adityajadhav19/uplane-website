@@ -859,3 +859,106 @@ main{background:#f5f6f8}
   }
   .hero h1 br { display: block !important; }
 }
+
+
+/* Mobile-only containment fixes. Desktop layout remains unchanged. */
+@media (max-width: 760px) {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  /* Prevent flex-shrink from clipping the final letters of the wordmark. */
+  .site-nav {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible !important;
+  }
+  .site-nav .logo {
+    flex: 0 0 auto !important;
+    width: max-content !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+  .site-nav .menu-toggle {
+    flex: 0 0 auto !important;
+    margin-left: auto !important;
+  }
+
+  /* The comparison is intentionally wider than a phone: scroll it inside
+     this wrapper instead of expanding the whole document horizontally. */
+  .comparison-section {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 56px 20px 48px !important;
+    overflow: visible;
+  }
+  .comparison-heading {
+    width: 100%;
+    min-width: 0;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    gap: 20px;
+    margin-bottom: 28px !important;
+  }
+  .comparison-heading > div,
+  .comparison-heading h2,
+  .comparison-heading p {
+    max-width: 100%;
+    min-width: 0;
+  }
+  .comparison-heading h2 {
+    font-size: clamp(28px, 7.2vw, 36px) !important;
+    line-height: 1.18 !important;
+    letter-spacing: -1px !important;
+  }
+  .comparison-heading h2 br,
+  .comparison-heading p br {
+    display: none;
+  }
+  .comparison-table-scroll {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    border-radius: 7px;
+    scrollbar-width: thin;
+    scrollbar-color: #c5d1e1 #f1f4f8;
+  }
+  .comparison-table-scroll:focus-visible {
+    outline: 2px solid #2476ff;
+    outline-offset: 3px;
+  }
+  .comparison-table-polished {
+    width: 700px !important;
+    max-width: none !important;
+    min-width: 700px !important;
+    margin: 0;
+  }
+  .comparison-table-polished .comparison-row {
+    width: 700px;
+    min-width: 700px;
+    grid-template-columns: 150px 275px 275px !important;
+  }
+  .comparison-table-polished .comparison-row > div {
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+}
+@media (max-width: 420px) {
+  .site-nav .logo {
+    font-size: 21px !important;
+    letter-spacing: -.6px !important;
+  }
+  .comparison-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
